@@ -32,7 +32,8 @@ const Hero: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="mt-8 flex items-center justify-center gap-4"
+        // CHANGE 1: Use flex-col for mobile, switch to flex-row on medium screens (md)
+        className="mt-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6"
       >
         <a
           href="mailto:aakashsittu28@gmail.com"
@@ -41,7 +42,10 @@ const Hero: React.FC = () => {
           <MailIcon className="w-5 h-5" />
           <span>aakashsittu28@gmail.com</span>
         </a>
-        <span className="text-muted-slate/50">|</span>
+
+        {/* CHANGE 2: Hide separator on mobile (hidden), show on desktop (md:inline) */}
+        <span className="hidden md:inline text-muted-slate/50">|</span>
+
         <a
           href="https://linkedin.com/in/aakash-sittu"
           target="_blank"
@@ -51,7 +55,9 @@ const Hero: React.FC = () => {
           <LinkedinIcon className="w-5 h-5" />
           <span>LinkedIn</span>
         </a>
-        <span className="text-muted-slate/50">|</span>
+
+        <span className="hidden md:inline text-muted-slate/50">|</span>
+
         <a
           href="https://github.com/aakash-sittu"
           target="_blank"
@@ -61,11 +67,12 @@ const Hero: React.FC = () => {
           <GithubIcon className="w-5 h-5" />
           <span>Github</span>
         </a>
-        <span className="text-muted-slate/50">|</span>
+
+        <span className="hidden md:inline text-muted-slate/50">|</span>
+
         <a
           href="https://drive.google.com/uc?export=download&id=1nCsKdzxDJBF9KsHKNBDEWY5mMLv3JxmD"
-          target="_blank"
-          rel="noopener noreferrer"
+          download
           className="flex items-center gap-2 text-muted-slate hover:text-white transition-colors"
         >
           <ResumeIcon className="w-5 h-5" />
